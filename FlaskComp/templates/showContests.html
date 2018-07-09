@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<!--
+	Typify by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		
+		<title>مسابقات</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="../static/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<style>
+			@import url('https://fonts.googleapis.com/css?family=Harmattan|Lalezar');
+		</style>
+	</head>
+	<body>
+
+		<!-- Banner -->
+			<section style="font-family: 'lalezar', cursive;" id="banner">
+				<h2><strong>هنوز بی نام</strong></h2>
+				<p>مسابقه بسازید و خودتون برنده بشید</p>
+			</section>
+
+		
+				<!-- One -->
+			<section id="one" class="wrapper special">
+				<div class="inner">
+					<header class="major">
+						<h2 style="font-family:'Lalezar', sans-serif; " >مسابقات</h2>
+					</header>
+					<div class="features">
+
+                        {%for contest in resutl%}
+						<div style="font-family:'Harmattan', sans-serif; " class="feature">
+							<i class="fa fa-diamond"></i>
+							<h3 style="font-family:'Lalezar', sans-serif; " > {{contest["Title"]}} </h3>
+							<p>هزینه ی ورود به مسابقه {{contest["RegistrationFee"]}} ریال </p>
+							<p>زمان شروع مسابقه {{contest["StartTime"]}} </p>
+						</div>
+                        {%endfor%}
+
+					</div>
+				</div>
+			</section>
+
+
+		<!-- Two -->
+			<section id="two" class="wrapper style2 special">
+				<div class="inner narrow">
+					<header>
+						<h2 style="font-family:'Harmattan', sans-serif; ">ارتباط با ما</h2>
+					</header>
+					<form style="font-family:'Harmattan', sans-serif; " class="grid-form" method="post" action="#">
+						<div class="form-control narrow">
+							<label for="name">نام و نام خانوادگی</label>
+							<input name="name" id="name" type="text">
+						</div>
+						<div class="form-control narrow">
+							<label for="email">ایمیل</label>
+							<input name="email" id="email" type="email">
+						</div>
+						<div class="form-control">
+							<label for="message">متن پیام</label>
+							<textarea name="message" id="message" rows="4"></textarea>
+						</div>
+						<ul class="actions">
+							<li><input value="ارسال" type="submit"></li>
+						</ul>
+					</form>
+				</div>
+			</section>
+
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="copyright">
+					&copy; Untitled. Design: <a href="http://templated.co/">TEMPLATED</a>.
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
