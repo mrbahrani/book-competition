@@ -3,7 +3,7 @@ import requests
 
 class Database:
     def __init__(self):
-        self.dbUrl = "http://jeld.mohammadmirzaaee.com/api/"
+        self.dbUrl = "http://jeld.mohammadmirzaaee.com/"
 
     def addConetest(self,title,description, award1, award2,award3, award4,
                     registrationFee, startTime, endTime, startable,
@@ -30,6 +30,7 @@ class Database:
         print(req)
         resp = requests.post(self.dbUrl + 'Contest/ContestsList', json=req)
         revised = resp.json()
+        print("FUck")
         for contest in revised['ContestsList']:
             if 'علامه' in str(contest['Title']):
                 print("Do!")
@@ -38,14 +39,22 @@ class Database:
                 print(contest)
         return revised
 
-    def passwordCheck(self,username, hashedpassword):
-        if username == "ali" and hashedpassword == '098f6bcd4621d373cade4e832627b4f6':
-            return True
-
-        else: return False
+    def login(self,email, username, hashedpassword):
+        print(hashedpassword)
+        LoginRequest = {"UserName":username,"Password":hashedpassword,"Email":email}
+        print(LoginRequest)
+        response = requests.post(self.dbUrl + 'DaAuth/Login', json=LoginRequest).json()
+        print(response)
+        if response["Status"] == 1:
+            return response["CustomerId"]
+        else:
+            return False
 
     def signup(self,email="shit@gmail.com", username="", password=""):
-        return True
+        signUpRequest = {"Email": email,"UserName":username, "Password":password}
+        response = requests.post(self.dbUrl + 'DaAuth/AddCustomer', json=signUpRequest).json()
+        print(response,"Hell fuck minaee")
+        return response["status"]
 
     def getprofile(self,userid):
         pass
@@ -57,13 +66,21 @@ class Database:
         pass
 
     def getcontest(self,contestid):
-        pass
+        ReadContestRequest = {"ContestId": contestid}
+        response = requests.post(self.dbUrl + 'Contest/QuestionsListByContestId', json=ReadContestRequest).json()
+        print (response,"Zinab")
+        return response["QuestionsList"]
 
-    def getResult(self):
-        pass
+    def getResults(self,contestid):
+        ReadContestRequest = {"ContestId": contestid}
+        response = requests.post(self.dbUrl + 'Contest/CorrectChoices', json=ReadContestRequest).json()
+        return response
 
     def viewinformation(self,contestid):
-        pass
+        ReadContestRequest = {"ContestId": contestid}
+        response = requests.post(self.dbUrl + 'Contest/ReadContest', json=ReadContestRequest).json()
+        print(response,"a shoker")
+        return response
 
     def viewranking(self):
         return [{"user":"Ali","point":200},{"user":"Mahhii","point":540},

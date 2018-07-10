@@ -2,11 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>مسابقه شروع شد</title>
+    <meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="../static/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<style>
+			@import url('https://fonts.googleapis.com/css?family=Harmattan|Lalezar');
+		</style>
 </head>
 <body>
-<form action="http://localhost:5000/show_result" method="get">
+
+
+</section>
+		<!-- Banner -->
+			<section style="font-family: 'lalezar', cursive;" id="banner">
+				<h2><strong>هنوز بی نام</strong></h2>
+				<p>مسابقه بسازید و خودتون برنده بشید</p>
+			</section>
+
+</br></br>
+<center>
+<form style="font-family: 'lalezar', cursive;" action="http://localhost:5000/show_result" method="get">
+
+    {% for q in questions%}
+
+    <fieldset id={{q['QuestionsId']}}>
+        <p>{{q['QuestionDescription']}}</p>
+    <input type="radio" name={{q['QuestionsId']}} value="1" checked> {{q['Choice1']}}<br>
+    <input type="radio" name={{q['QuestionsId']}} value="2" checked> {{q['Choice2']}}<br>
+    <input type="radio" name={{q['QuestionsId']}} value="3" checked> {{q['Choice3']}}<br>
+    <input type="radio" name={{q['QuestionsId']}} value="4" checked> {{q['Choice4']}}<br>
+    </fieldset>
+
+    {%endfor%}
+    </br></br>
     <input type="submit" value="پایان مسابقه">
 </form>
+    </center>
 </body>
 </html>

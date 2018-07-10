@@ -2,11 +2,53 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{contest_name}}</title>
+    <title>{{cn['Title']}}</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="../static/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<style>
+			@import url('https://fonts.googleapis.com/css?family=Harmattan|Lalezar');
+		</style>
 </head>
 <body>
-<form action="http://localhost:5000/joincontest/{{contest_id}}">
+
+</section>
+		<!-- Banner -->
+			<section style="font-family: 'lalezar', cursive;" id="banner">
+				<h2><strong>هنوز بی نام</strong></h2>
+				<p>مسابقه بسازید و خودتون برنده بشید</p>
+			</section>
+
+</br></br>
+<center>
+    <section style="font-family: 'lalezar', cursive;">
+<h3>{{cn['Title']}}</h3>
+    <p>درباره ی مسابقه</p>
+    <p>{{cn['Description']}}</p>
+
+    <p>جایزه ی نفر اول</p>
+    <p>{{cn['Award1']}} ريال</p>
+
+    <p>جایزه ی نفر اول</p>
+    <p>{{cn['Award1']}} ريال</p>
+
+    <p>جایزه ی نفر اول</p>
+    <p>{{cn['Award1']}} ريال</p>
+
+    <p>زمان شروع مسابقه</p>
+    <p>{{cn['StartTime']}} ريال</p>
+
+    <p>زمان پایان مسابقه</p>
+    <p>{{cn['EndTime']}} ريال</p>
+
+</br></br>
+<form style="margin: 0 auto" action="http://localhost:5000/joincontest/{{contest_id}}">
     <input type="submit" value="Enter Contest" />
 </form>
+
+        </section>
+</center>
 </body>
 </html>

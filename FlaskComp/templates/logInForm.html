@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>LogIn</title>
-</head>
+	<head>
+		<title> ورود به هنوز بی نام</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="../static/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<style>
+			@import url('https://fonts.googleapis.com/css?family=Harmattan|Lalezar');
+		</style>
+	</head>
 <body>
 {% with messages = get_flashed_messages() %}
    {% if messages %}
@@ -13,41 +20,50 @@
    {% endif %}
 {% endwith %}
 
+<!-- Banner -->
+			<section style="font-family: 'lalezar', cursive;" id="banner">
+				<h2><strong>هنوز بی نام</strong></h2>
+				<p>مسابقه بسازید و خودتون برنده بشید</p>
+			</section>
 
 
 		<!-- Two -->
 			<section id="two" class="wrapper style2 special">
 				<div class="inner narrow">
 					<header>
-						<h2 style="font-family:'Harmattan', sans-serif; ">ارتباط با ما</h2>
+						<h2 style="font-family:'Harmattan', sans-serif; ">ورود به سایت</h2>
 					</header>
 					<form style="font-family:'Harmattan', sans-serif; " class="grid-form" method="post" action="http://localhost:5000/auth" method="post">
-                        Username<br>
+                        نام کاربری<br>
                         <input type="text" name="username"><br>
-                        Password<br>
+                        کلمه ی عبور<br>
                         <input type="password" name="password"><br>
 						<ul class="actions">
-							<li><input type="submit" value="LogIn" name="submitter"></li>
+							<li><input type="submit" value="ورود" name="submitter"></li>
 						</ul>
 					</form>
 				</div>
 			</section>
 
+            <section id="two2" class="wrapper style2 special">
+				<div class="inner narrow">
+					<header>
+						<h2 style="font-family:'Harmattan', sans-serif; ">عضویت در سایت</h2>
+					</header>
+					<form style="font-family:'Harmattan', sans-serif; " class="grid-form" method="post" action="http://localhost:5000/signup_check" method="post">
+                        ایمیل<br>
+                        <input type="text" name="email" ><br>
+                        نام کاربری<br>
+                        <input type="text" name="username"><br>
+                        کلمه ی عبور<br>
+                        <input type="password" name="password"><br>
+						<ul class="actions">
+							<input type="submit" value="ثبت نام"></li>
+						</ul>
+					</form>
+				</div>
+			</section>
 
-
-
-</form>
-
-<br>
-<form action="http://localhost:5000/signup_check" method="post">
-    Email:
-    <input type="text" name="email" ><br>
-    Username:
-    <input type="text" name="username"><br>
-    Password:
-    <input type="password" name="password"><br>
-    <input type="submit" value="Sign Up">
-</form>
 
 </body>
 </html>
