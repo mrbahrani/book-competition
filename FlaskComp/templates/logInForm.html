@@ -13,12 +13,41 @@
    {% endif %}
 {% endwith %}
 
-<form action="http://localhost:5000/auth" method="post">
-    Username<br>
-    <input type="text" name="username"><br>
-        Password<br>
-    <input type="password" name="password"><br>
-    <input type="submit" value="LogIn" name="submitter">
+
+
+		<!-- Two -->
+			<section id="two" class="wrapper style2 special">
+				<div class="inner narrow">
+					<header>
+						<h2 style="font-family:'Harmattan', sans-serif; ">ارتباط با ما</h2>
+					</header>
+					<form style="font-family:'Harmattan', sans-serif; " class="grid-form" method="post" action="http://localhost:5000/auth" method="post">
+                        Username<br>
+                        <input type="text" name="username"><br>
+                        Password<br>
+                        <input type="password" name="password"><br>
+						<ul class="actions">
+							<li><input type="submit" value="LogIn" name="submitter"></li>
+						</ul>
+					</form>
+				</div>
+			</section>
+
+
+
+
 </form>
+
+<br>
+<form action="http://localhost:5000/signup_check" method="post">
+    Email:
+    <input type="text" name="email" ><br>
+    Username:
+    <input type="text" name="username"><br>
+    Password:
+    <input type="password" name="password"><br>
+    <input type="submit" value="Sign Up">
+</form>
+
 </body>
 </html>

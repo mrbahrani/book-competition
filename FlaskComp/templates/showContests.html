@@ -7,7 +7,7 @@
 <html>
 	<head>
 		
-		<title>مسابقات</title>
+		<title>هنوز بی نام</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -19,14 +19,21 @@
 	</head>
 	<body>
 
+<section>
+
+      {% if logIn[0]==True %}
+	<p>{{logIn[1]}}</p>
+      {% else %}
+	<a href="/login">ورود به سایت / عضویت</a>
+      {% endif %}
+</section>
 		<!-- Banner -->
 			<section style="font-family: 'lalezar', cursive;" id="banner">
 				<h2><strong>هنوز بی نام</strong></h2>
 				<p>مسابقه بسازید و خودتون برنده بشید</p>
 			</section>
 
-		
-				<!-- One -->
+			<!-- One -->
 			<section id="one" class="wrapper special">
 				<div class="inner">
 					<header class="major">
@@ -37,7 +44,8 @@
                         {%for contest in resutl%}
 						<div style="font-family:'Harmattan', sans-serif; " class="feature">
 							<i class="fa fa-diamond"></i>
-							<h3 style="font-family:'Lalezar', sans-serif; " > {{contest["Title"]}} </h3>
+							<h3 style="font-family:'Lalezar', sans-serif; " >
+								<a href="/contest/{{contest['ContestId']}}">{{contest["Title"]}}</a> </h3>
 							<p>هزینه ی ورود به مسابقه {{contest["RegistrationFee"]}} ریال </p>
 							<p>زمان شروع مسابقه {{contest["StartTime"]}} </p>
 						</div>
@@ -47,6 +55,24 @@
 				</div>
 			</section>
 
+			<section id="one2" class="wrapper special">
+				<div class="inner">
+					<header class="major">
+						<h2 style="font-family:'Lalezar', sans-serif; " >رتبه بندی</h2>
+					</header>
+					<div class="features">
+
+                        {%for rank in ranking%}
+						<div style="font-family:'Harmattan', sans-serif; " class="feature">
+							<i class="fa fa-diamond"></i>
+							<h3 style="font-family:'Lalezar', sans-serif; " > {{rank["user"]}} </h3>
+							<p>امتیاز {{rank["point"]}}  </p>
+						</div>
+                        {%endfor%}
+
+					</div>
+				</div>
+			</section>
 
 		<!-- Two -->
 			<section id="two" class="wrapper style2 special">

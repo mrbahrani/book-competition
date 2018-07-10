@@ -35,7 +35,7 @@ class Database:
                 print("Do!")
                 contest["Title"]=contest["Title"].replace("علامه ی","دانشمند")
                 #contest["Title"]=contest["Title"].replace("علامه","دانشمند")
-                print(contest["Title"])
+                print(contest)
         return revised
 
     def passwordCheck(self,username, hashedpassword):
@@ -47,4 +47,24 @@ class Database:
     def signup(self,email="shit@gmail.com", username="", password=""):
         return True
 
+    def getprofile(self,userid):
+        pass
 
+    def editprofile(self):
+        pass
+
+    def joincontest(self,contestid,userid):
+        pass
+
+    def getcontest(self,contestid):
+        pass
+
+    def getResult(self):
+        pass
+
+    def viewinformation(self,contestid):
+        pass
+
+    def viewranking(self):
+        return [{"user":"Ali","point":200},{"user":"Mahhii","point":540},
+                {"user":"Ehsan","point":900}, {"user":"Behrooz","point":0} ]

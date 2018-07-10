@@ -2537,6 +2537,21 @@ input{
 
 /* Section/Article */
 
+sectionV {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  margin: 0 -8px;
+}
+
+sectionV > * {
+  margin: 0 8px;
+}
+
+.tallv {
+  max-width: 64px;
+}
+
 	section.special, article.special, header.special {
 		text-align: center;
 	}
